@@ -8,13 +8,13 @@ export const AddCategory = ({ onNewCategory }) => {
     e.preventDefault();
     // setCategories((cat) => [...cat, inputValue]);
     // emitir el evento
-    if (inputValue.trim().length === 0) return;
+    if (inputValue.trim().length <= 1) return;
     setInputValue("");
     onNewCategory(inputValue.trim());
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} aria-label="form">
       <input
         type="text"
         placeholder="Buscar gif"
@@ -25,6 +25,6 @@ export const AddCategory = ({ onNewCategory }) => {
   );
 };
 
-// AddCategory.propTypes = {
-//   setCategories: PropTypes.func,
-// };
+AddCategory.propTypes = {
+  onNewCategory: PropTypes.func.isRequired,
+};
